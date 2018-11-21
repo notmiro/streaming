@@ -1,57 +1,14 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
-client.on('ready', () => {
-    console.log('I am ready!');
+client.on('message', msg => {
+var prefix = "Mistream";//البرفكس
+  var args = msg.content.split(' ').slice(1);
+  var argresult = args.join(' ');
+if (msg.author.bot) return;
+if(msg.content.startsWith(prefix + "setstream")) {
+      if(msg.author.id != "337398843458977792") return msg.reply("هذا الامر لصحاب الحساب");
+      client.user.setGame(`${argresult}`,"http://twitch.tv/S-F")
+      var Die = new Discord.RichEmbed()
+      .setTitle("✅تم تغير الستريمنق الخاص بك")
+     .addField("New Stream",`${argresult}`, true)
+     msg.channel.sendEmbed(Die);
+}
 });
-
-client.on('message', message => {
-    if (message.content === 'zg') {
-        message.reply('pong');
-      }
-});
-
-client.on('ready', async() => {
-var server = "513789038658846722"; // ايدي السررفر
-var channel = "513789038658846728";//ايدي الروم
-    setInterval(()=>{
-    client.guilds.get(server).channels.get(channel).send('**كودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودز **')
-    },305);
-})
-
-client.on('ready', async() => {
-var server = "513789038658846722"; // ايدي السررفر
-var channel = "513789038658846728";//ايدي الروم
-    setInterval(()=>{
-    client.guilds.get(server).channels.get(channel).send('#daily')
-    },86400);
-})
-
-client.login(process.env.BOT_TOKEN);
-const client2 = new Discord.Client();
-client2.on('ready', () => {
-    console.log('I am ready!');
-});
-
-client2.on('message', message => {
-    if (message.content === 'zg') {
-        message.reply('pong');
-      }
-});
-
-client2.on('ready', async() => {
-var server = "513789038658846722"; // ايدي السررفر
-var channel = "513789038658846728";//ايدي الروم
-    setInterval(()=>{
-    client2.guilds.get(server).channels.get(channel).send('**كودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودزكودز **')
-    },305);
-})
-
-client2.on('ready', async() => {
-var server = "513789038658846722"; // ايدي السررفر
-var channel = "513789038658846728";//ايدي الروم
-    setInterval(()=>{
-    client2.guilds.get(server).channels.get(channel).send('#daily')
-    },86400);
-})
-
-client2.login(process.env.BOT_TOKEN2);
